@@ -10,7 +10,7 @@ BEGIN;
  * inside of a tweet someone else's tweet.
  */
 CREATE TABLE users (
-    id_users BIGINT PRIMARY KEY,
+    id_users BIGINT,
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
     url TEXT,
@@ -73,7 +73,7 @@ CREATE INDEX tweet_mentions_index ON tweet_mentions(id_users);
 
 CREATE TABLE tweet_tags (
     id_tweets BIGINT,
-    tag TEXT,
+    tag TEXT
 );
 COMMENT ON TABLE tweet_tags IS 'This table links both hashtags and cashtags';
 CREATE INDEX tweet_tags_index ON tweet_tags(id_tweets);
